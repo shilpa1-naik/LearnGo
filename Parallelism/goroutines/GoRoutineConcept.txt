@@ -1,0 +1,12 @@
+A goroutine is a function or a method which is executed concurrently with the rest of the program.
+
+go statement runs a func­tion in a sepa­rate thread of execu­tion.
+you simply type go function/method and the program creates a goroutine which will execute concurrently and immediately return to the next line of the code in the parent routine. In doing so,
+the program will ignore any return values from the goroutine.
+
+All goroutines have the same address space
+ all goroutines in a single program share the same address space. Hence, it is the programmer’s job to make sure that they implement concurrency while keeping in mind the prevention of race conditions and the handling of synchronization issues between concurrent operations.
+
+Goroutines as light-weight threads
+
+

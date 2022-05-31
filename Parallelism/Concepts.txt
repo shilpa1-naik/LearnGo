@@ -1,0 +1,27 @@
+Parallelism is when we break up a task into subtasks and execute them simultaneously. Each of the subtasks is independent and may or may not be related. In short, we carry out many computations at the same time in parallelism.
+
+The multicore processor in your computer is an example of parallelism where parallel tasks are run on multiple cores to solve problems. In this way, parallel computing helps us solve large problems efficiently by using more than one CPU to execute multiple computations at the same time, which saves time in the case of large datasets.
+
+However, parallel programming is hard to achieve as we need to ensure the independence of tasks when it comes to dividing the problem and sharing the data. This is where concurrency comes into play!
+
+Concurrency and Parallelism are not the same but are closely related to each other.
+
+"Concurrency is about structure.
+
+Parallelism is about execution."
+
+
+There are four conditions, known as the Coffman Conditions, that must be present simultaneously for a deadlock to occur:
+
+Mutual Exclusion#
+A concurrent process holds at least one resource at any one time making it non-sharable.
+
+Hold And Wait#
+A concurrent process holds a resource and is waiting for an additional resource.
+
+No Preemption#
+A resource held by a concurrent process cannot be taken away by the system. It can only be freed by the process holding it.
+
+Circular Wait#
+A concurrent process must be waiting on a chain of other concurrent processes such that P1 is waiting on P2, P2 on P3, and so on, and there exists a Pn which is waiting on P1. This forms a circular loop.
+
