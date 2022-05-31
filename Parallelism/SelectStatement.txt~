@@ -1,0 +1,39 @@
+The select statement will pick up any channel operation that is ready.
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	channel1 := make(chan string)
+	channel2 := make(chan string)
+
+	go func() {
+		for i := 0; i < 5; i++ {
+			channel1 <- "I'll print every 100ms"
+			time.Sleep(time.Millisecond * 100)
+			
+		}
+	}()
+
+	go func() {
+		for i := 0; i < 5; i++ {
+			channel2 <- "I'll print every 1s"
+			time.Sleep(time.Second * 1)
+			
+		}
+	}()
+
+	for i := 0; i < 5; i++ {
+		
+		fmt.Println(<-channel1)
+		fmt.Println(<-channel2)
+		
+	}
+}
+
+ Note that channel1 is always ready to send messages but is blocked by the delay in the second goroutine. channel1 has to wait for 1 second for fmt.Println(<-channel2) to execute every time although the first goroutine may have finished entirely in less than a second!
+
